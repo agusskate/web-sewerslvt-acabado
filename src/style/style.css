@@ -1,0 +1,160 @@
+body {
+  background-color: black;
+  margin: 0;
+  max-height: 100vh;
+
+}
+
+/* Video de fondo */
+#background-video {
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -2;
+  opacity:70%;
+}
+
+.bg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 100vh;
+  background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+  background-repeat: repeat;
+  animation: bg-animation .2s infinite;
+  visibility: visible;
+  z-index: -1;
+}
+
+@keyframes bg-animation {
+  0% { transform: translate(0,0) }
+  10% { transform: translate(-5%,-5%) }
+  20% { transform: translate(-10%,5%) }
+  30% { transform: translate(5%,-10%) }
+  40% { transform: translate(-5%,15%) }
+  50% { transform: translate(-10%,5%) }
+  60% { transform: translate(15%,0) }
+  70% { transform: translate(0,10%) }
+  80% { transform: translate(-15%,0) }
+  90% { transform: translate(10%,5%) }
+  100% { transform: translate(5%,0) }
+}
+
+/* LOADER1 */
+.container1{
+  padding-left: 1%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10%;
+  height: 90vh;
+  
+}
+.loader {
+  width: 100%;
+  font-weight: bold;
+  font-family: monospace;
+  white-space: pre;
+  font-size: 60px;
+  line-height: 1.2em;
+  height:1.2em;
+  overflow: hidden;
+  color: white;
+}
+.loader:before {
+
+  content:"Loading...\A⌰oading...\A⌰⍜ading...\A⌰⍜⏃ding...\A⌰⍜⏃⎅ing...\A⌰⍜⏃⎅⟟ng...\A⌰⍜⏃⎅⟟⋏g...\A⌰⍜⏃⎅⟟⋏☌...\A⌰⍜⏃⎅⟟⋏☌⟒..\A⌰⍜⏃⎅⟟⋏☌⟒⏁.\A⌰⍜⏃⎅⟟⋏☌⟒⏁⋔"; 
+  white-space: pre;
+  display: inline-block;
+  animation: l39 1s infinite steps(11) alternate;
+}
+
+@keyframes l39 {
+  100%{transform: translateY(-100%)}
+}
+
+
+/* JAPANESE LOADER */
+.japanese-loader {
+  width: fit-content;
+  font-weight: bold;
+  font-family: monospace;
+  white-space: pre;
+  font-size: 20px;
+  line-height: 1.2em;
+  height: 1.2em;
+  overflow: hidden;
+  color: white;
+}
+
+.japanese-loader:before {
+  content: "読み込み中...\Aローディング中...\A読込中...\Aロード中...\A処理中...\Aロード...\A処理中...\A進行中...\A完了間近...\A完了しました...\A終了しました...";
+  white-space: pre;
+  display: inline-block;
+  animation: l39 1s infinite steps(11) alternate;
+}
+
+@keyframes l39 {
+  100% { transform: translateY(-100%) }
+}
+
+/* ASCII LOADER */
+.ascii-loader {
+  width: 100%;
+  height: 10em;
+  overflow: hidden;
+  position: relative;
+  color: white;
+
+}
+
+.ascii-loader pre {
+  font-family: monospace;
+  font-size: 10px;
+  white-space: pre-wrap;
+  margin: 0;
+  animation: asciiScroll 5s linear infinite;
+}
+
+@keyframes asciiScroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.in2{
+  font-size: 25px;
+  font-family: monospace;
+  color: white;
+}
+
+/* EFECTOS DE TRANSICION */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+.fade-out {
+  animation: fadeOut 1s forwards;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+

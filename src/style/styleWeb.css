@@ -1,0 +1,1328 @@
+* {
+    cursor: url('../../multimedia/images/cursor.svg'), auto;
+}
+
+button,
+a {
+    cursor: url('../../multimedia/images/cursor.svg'), pointer;
+}
+
+@font-face {
+    font-family: 'Panic';
+    src: url('../../multimedia/fonts/PANIC.ttf') format('truetype');
+    /* Ajusta la ruta si es necesario */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sereg';
+    src: url('../../multimedia/fonts/pencilCASE.ttf') format('truetype');
+    /* Ajusta la ruta si es necesario */
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {
+    background-color: rgb(0, 0, 0);
+    margin: 0;
+    max-height: 100vh;
+    display: flex;
+    justify-content: center;
+
+}
+
+/* Video de fondo */
+#background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -2;
+    opacity: 70%;
+}
+
+.bg {
+    position: fixed;
+    width: 200%;
+    height: 100vh;
+    background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+    background-repeat: repeat;
+    animation: bg-animation .2s infinite;
+    visibility: visible;
+    z-index: 6;
+}
+
+.lines {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 99;
+    opacity: 0.03;
+}
+
+.lines:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, .5) 51%);
+    background-size: 100% 4px;
+    animation: scanlines 0.5s linear infinite;
+}
+
+@keyframes scanlines {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 4px;
+    }
+}
+
+
+.globalContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 70%;
+    height: 100vh;
+    justify-content: center;
+}
+
+.banner {
+    width: 100%;
+    height: 63px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("../../multimedia/images/bannerFinal.png");
+    background-position: center;
+    border-bottom: 5px solid #c544bf;
+}
+
+.webContainer {
+    width: 100%;
+    height: 93vh;
+    border: 5px solid #c544bf;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.columnsContainer {
+    box-sizing: border-box;
+    margin-top: 5px;
+    gap: 5px;
+    display: flex;
+    padding: 5px;
+    justify-content: center;
+     width: auto;
+    height: 91%;
+
+}
+
+/* COLUMNA 1 */
+.column1 {
+    gap: 5px;
+
+    width: 25%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.container1C1 {
+    /* PARA QUE NO DESBORDE AL APLICAR EL BORDE */
+    box-sizing: border-box;
+    width: 100%;
+    height: 40%;
+    border: 5px solid #c544bf;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.containerTitleC1 {
+    box-sizing: border-box;
+
+    padding: 5PX;
+    color: #3b00ff;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Panic', Arial, sans-serif;
+    background-color: #e1ccfc;
+    border-bottom: 5px solid #c544bf;
+    /* PARA APLICAR UN BORDE A LA LETRA */
+    text-shadow:
+        -2px -2px 0 #ffffff,
+        2px -2px 0 #ffffff,
+        -2px 2px 0 #ffffff,
+        2px 2px 0 #ffffff;
+}
+
+/* CONTENEDOR UPDATES */
+.updatesContainer {
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+/* CAMBIO DEL COLOR DE LA BARRA LATERAL */
+.updatesContainer::-webkit-scrollbar {
+    width: 15px;
+}
+
+/*ESTILO DE LA PISTA */
+.updatesContainer::-webkit-scrollbar-track {
+    background-color: #d8d8d8;
+    /*Color de la pista */
+}
+
+/*thumb (parte móvil) */
+.updatesContainer::-webkit-scrollbar-thumb {
+    background-color: #3b00ff;
+    border: 2px solid #f1f1f1;
+}
+
+/*thumb cuando se pasa el mouse */
+.updatesContainer::-webkit-scrollbar-thumb:hover {
+    background-color: #3b00ff;
+}
+
+/* MENSAJE UPDATES */
+.messageUpdates {
+    font-family: 'Sereg', Arial, sans-serif;
+
+    box-sizing: border-box;
+
+    padding: 5px;
+    width: 100%;
+    height: auto;
+    background-color: #e1ccfc;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.fechaUpdate,
+.nameComment,
+.nicknameComment {
+    color: #c544bf;
+    font-weight: bold;
+}
+
+.dateComment {
+    color: #bd8fba;
+    font-size: 12px;
+}
+
+.messageUpdate,
+.commentContent {
+    color: #1e0e7e;
+}
+
+
+
+
+
+/* CPNTENEDOR 2 COLUMNA 1 */
+.container2C1 {
+    /* PARA QUE NO DESBORDE AL APLICAR EL BORDE */
+    box-sizing: border-box;
+    width: 100%;
+    height: 40%;
+    border: 5px solid #c544bf;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.navContainer {
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+.iconNav {
+    width: 40px;
+}
+
+.optionMenu1 {
+    font-weight: bold;
+}
+
+.optionMenu1,
+.optionMenu2,
+.optionMenu3,
+.optionMenu4 {
+    color: #c544bf;
+    font-family: 'Sereg', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    gap: 5px;
+}
+
+
+
+.container3C1 {
+    /* PARA QUE NO DESBORDE AL APLICAR EL BORDE */
+    box-sizing: border-box;
+    width: 100%;
+    height: 40%;
+    border: 5px solid #c544bf;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.statsContainer {
+    font-family: 'Sereg', Arial, sans-serif;
+    font-size: 25px;
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    gap: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+.tenor-gif-embed {
+    width: 100%;
+    display: flex;
+
+    justify-content: end;
+
+
+}
+
+.tenor-gif-embed img {
+    width: 300px;
+
+}
+
+.stats {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.numberOnliner,
+.numberViews {
+    font-weight: bold;
+    color: #c544bf;
+}
+
+.onlineText,
+.viewsText {
+    color: #2a10b9;
+}
+
+.usersOnline,
+.views {
+    display: flex;
+    gap: 5px;
+}
+
+.tenor-gif-embed {
+    position: absolute;
+    bottom: 0;
+    width: 30px;
+}
+
+
+
+/* COLUMNA 2 */
+.column2 {
+    width: 50%;
+    height: 100%;
+ 
+}
+
+/* CONTENEDOR UPDATES */
+.container1C2 {
+    border: 5px solid #c544bf;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+/* CAMBIO DEL COLOR DE LA BARRA LATERAL */
+.container1C2::-webkit-scrollbar {
+    width: 15px;
+}
+
+/*ESTILO DE LA PISTA */
+.container1C2::-webkit-scrollbar-track {
+    background-color: #d8d8d8;
+    /*Color de la pista */
+}
+
+/*thumb (parte móvil) */
+.container1C2::-webkit-scrollbar-thumb {
+    background-color: #3b00ff;
+    border: 2px solid #f1f1f1;
+}
+
+/*thumb cuando se pasa el mouse */
+.container1C2::-webkit-scrollbar-thumb:hover {
+    background-color: #3b00ff;
+}
+
+
+
+.imageIntroContainer {
+    background-image: url("../../multimedia/images/sewerFace.png");
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.chat1 {
+    width: 100%;
+    border: 5px solid #1e0e7e;
+    display: flex;
+    box-sizing: border-box;
+}
+/* CAMBIO DEL COLOR DE LA BARRA LATERAL */
+.messageIntro::-webkit-scrollbar {
+    width: 10px;
+}
+
+/*ESTILO DE LA PISTA */
+.messageIntro::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+    /*Color de la pista */
+}
+
+/*thumb (parte móvil) */
+.messageIntro::-webkit-scrollbar-thumb {
+    background-color: #3b00ff;
+    border: 2px solid #f1f1f1;
+}
+
+/*thumb cuando se pasa el mouse */
+.messageIntro::-webkit-scrollbar-thumb:hover {
+    background-color: #3b00ff;
+}
+
+
+.containerChatIntro {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    padding-right: 15px;
+}
+
+/* CAMBIO DEL COLOR DE LA BARRA LATERAL */
+.containerChatIntro::-webkit-scrollbar {
+    width: 10px;
+}
+
+/*ESTILO DE LA PISTA */
+.containerChatIntro::-webkit-scrollbar-track {
+    background-color: #d8d8d8;
+    /*Color de la pista */
+}
+
+/*thumb (parte móvil) */
+.containerChatIntro::-webkit-scrollbar-thumb {
+    background-color: #3b00ff;
+    border: 2px solid #f1f1f1;
+}
+
+/*thumb cuando se pasa el mouse */
+.containerChatIntro::-webkit-scrollbar-thumb:hover {
+    background-color: #3b00ff;
+}
+
+.imageIntro {
+    width: 100px;
+    height: 150px;
+    background-image: url("../../multimedia/images/faceChatSewer.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-right: 5px solid #1e0e7e;
+}
+
+.imageIntroYou {
+    width: 100px;
+    height: 150px;
+    background-image: url("../../multimedia/images/you.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-left: 5px solid #1e0e7e;
+}
+
+.containerMessageIntro {
+    background-color: #e1ccfc;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.containerMessageIntroYou {
+    background-color: #e4e4e4;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+}
+
+.nameIntro {
+    padding: 3px;
+    background-color: #ff9ffab6;
+    color: #1e0e7e;
+    font-weight: bold;
+    border-bottom: 2px solid #1e0e7e;
+    font-family: 'Sereg', Arial, sans-serif;
+}
+
+.nameIntroYou {
+    text-align: end;
+    padding: 3px;
+    background-color: #fffb0071;
+    color: #1e0e7e;
+    font-weight: bold;
+    border-bottom: 2px solid #1e0e7e;
+    font-family: 'Sereg', Arial, sans-serif;
+}
+
+.messageIntro {
+    font-family: 'Sereg', Arial, sans-serif;
+    text-align: justify;
+    padding: 5px;
+    color: #1e0e7e;
+    line-height: 1.6;
+    box-sizing: border-box;
+    overflow-y: auto;
+    height: 120px;
+}
+
+
+
+
+
+
+/* COLUMNA 2 SECCIÓN SHOP */
+.container1C2Shop {
+    border: 5px solid #c544bf;
+    border-radius: 5px;
+    background-color: rgb(0, 0, 0);
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    gap: 5px;
+    display: flex;
+
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+
+
+.imageIntroContainerShop {
+    background-image: url("../../multimedia/images/blinkiesCafe-gR.gif");
+    width: 100%;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.containerChatIntroShop {
+    display: flex;
+    flex-direction: column;
+
+    background-color: #4a148c00;
+    box-sizing: border-box;
+    gap: 100px;
+    align-items: center;
+    overflow-y: auto;
+
+}
+
+/* CAMBIO DEL COLOR DE LA BARRA LATERAL */
+.containerChatIntroShop::-webkit-scrollbar {
+    width: 10px;
+}
+
+/*ESTILO DE LA PISTA */
+.containerChatIntroShop::-webkit-scrollbar-track {
+    background-color: #d8d8d8;
+    /*Color de la pista */
+}
+
+/*thumb (parte móvil) */
+.containerChatIntroShop::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border: 2px solid #f1f1f1;
+}
+
+/*thumb cuando se pasa el mouse */
+.containerChatIntroShop::-webkit-scrollbar-thumb:hover {
+    background-color: #ffffff;
+}
+
+
+/* CONTENEDOR ITEM SHOP */
+.itemShopContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #2910b900;
+    gap: 10px;
+}
+
+.itemImage {
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #4a148c00;
+}
+
+.itemTitle {
+    font-family: 'Sereg', Arial, sans-serif;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+.itemImage img {
+    width: 400px;
+    height: 400px;
+    border: 5px solid white;
+}
+
+.itemGif img {
+    cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media screen and (min-width: 780px) and (max-width: 1020px) {
+    .itemImage img {
+        width: 300px;
+        height: 300px;
+        border: 5px solid white;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .itemImage img {
+        width: 290px;
+        height: 290px;
+        border: 5px solid white;
+    }
+}
+
+
+
+/* COLUMNA 2 ALBUMS */
+.container1C2Albums {
+    border: 5px solid #c544bf;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    gap: 5px;
+    display: flex;
+
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 100%;
+
+}
+
+.imageIntroContainerAlbums {
+
+    background-image: url("../../multimedia/images/gifAlbums.gif");
+    width: 100%;
+    height: 75px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.containerAlbums {
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+
+    background-color: #4a148c00;
+    box-sizing: border-box;
+    gap: 10px;
+    align-items: center;
+    overflow-y: auto;
+
+}
+
+/* CAMBIO DEL COLOR DE LA BARRA LATERAL */
+.containerAlbums::-webkit-scrollbar {
+    width: 10px;
+}
+
+/*ESTILO DE LA PISTA */
+.containerAlbums::-webkit-scrollbar-track {
+    background-color: #d8d8d8;
+    /*Color de la pista */
+}
+
+/*thumb (parte móvil) */
+.containerAlbums::-webkit-scrollbar-thumb {
+    background-color: #3b00ff;
+    border: 2px solid #f1f1f1;
+}
+
+/*thumb cuando se pasa el mouse */
+.containerAlbums::-webkit-scrollbar-thumb:hover {
+    background-color: #3b00ff;
+}
+
+
+.filtrosYear {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: white;
+    border: 2px solid #c544bf;
+ 
+    border-radius: 5px;
+    color: #4a148c;
+    font-family: 'Sereg', Arial, sans-serif;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    background-color: white;
+    transform: scale(1.05);
+}
+
+.btn:active {
+    background-color: rgb(209, 209, 209);
+    transform: scale(0.98);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.btn:focus {
+    outline: none;
+}
+
+/* CONTENEDOR VIDEO TITLE */
+.container2C1Album {
+    /* PARA QUE NO DESBORDE AL APLICAR EL BORDE */
+    box-sizing: border-box;
+    width: 100%;
+    height: 400px;
+    border: 5px solid #c544bf;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+.videoAlbum {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.videoAlbum video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* COLUMNA 4 SOCIAL */
+.containerChatSocial {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+ 
+ 
+}
+
+/* CAMBIO DEL COLOR DE LA BARRA LATERAL */
+.containerChatSocial::-webkit-scrollbar {
+    width: 10px;
+}
+
+/*ESTILO DE LA PISTA */
+.containerChatSocial::-webkit-scrollbar-track {
+    background-color: #d8d8d8;
+    /*Color de la pista */
+}
+
+/*thumb (parte móvil) */
+.containerChatSocial::-webkit-scrollbar-thumb {
+    background-color: #3b00ff;
+    border: 2px solid #f1f1f1;
+}
+
+/*thumb cuando se pasa el mouse */
+.containerChatSocial::-webkit-scrollbar-thumb:hover {
+    background-color: #3b00ff;
+}
+
+.imageIntroContainerSocial {
+    background-image: url("../../multimedia/images/socialNetworkMain2.png");
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.socialContainer {
+    width: 100%;
+    background-color:#e1ccfc;
+    border-radius: 5px;
+
+    color:#7b1fa2;
+    font-size: 30px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+.socialContainer:hover {
+    width: 100%;
+    background-color:#000000;
+    border-radius: 5px;
+
+    color:#ffffff;
+    font-size: 30px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.socialContainer:active {
+    transform: scale(0.95); 
+}
+
+.textoSocial{
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Sereg', Arial, sans-serif;
+    color: #1e0e7e;
+}
+
+.giftContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gift img{
+    width: 200px;
+    height: 200px;
+    transition: all 0.3s ease;
+}
+.gift img:hover{
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+}
+.gift img:active{
+
+   transform: scale(0.95); 
+    cursor: pointer;
+}
+.arrow2 img{
+    transform: rotate(180deg);
+
+    width: 100px;
+    height: 100px;
+}
+.arrow1 img{
+    width: 100px;
+    height: 100px;
+}
+@media screen and (max-width: 1000px) {
+    .arrow2 img{
+        transform: rotate(180deg);
+    
+        width: 50px;
+        height: 50px;
+    }
+    .arrow1 img{
+        width: 50px;
+        height: 50px;
+    }
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none; 
+    color: inherit; 
+}
+
+
+
+
+
+/* COLUMNA 3 */
+.column3 {
+    gap: 5px;
+
+    width: 25%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* CONTENEDOR UPDATES */
+.container1C3 {
+    /* PARA QUE NO DESBORDE AL APLICAR EL BORDE */
+    box-sizing: border-box;
+    width: 100%;
+    height: 40%;
+    border: 5px solid #c544bf;
+    border-radius: 5px;
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* REPRODUCTOR */
+.player {
+    padding: 5px;
+    box-sizing: border-box;
+    font-family: 'Sereg', Arial, sans-serif;
+    width: 100%;
+
+}
+
+.song-info {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    background-color: #e1ccfc;
+
+    font-size: 12px;
+    color: #4a148c;
+}
+
+.song-info h3 {
+    width: 100%;
+    text-align: center;
+
+}
+
+.controls,
+.buttons,
+.volume {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.fa-solid {
+    font-size: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #4a148c;
+}
+
+.play-icon {
+    font-size: 32px;
+}
+
+.buttons button:hover {
+    color: #7b1fa2;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    /* quitar el estilo predefinido de las barras */
+    width: 90%;
+    height: 5px;
+    background: #ba68c8;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/*CAMBIAR COLOR BOLITA  BARRAS GOOGLE*/
+#volume::-webkit-slider-thumb,
+#progress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #7b1fa2;
+
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: background 0.2s;
+}
+
+#volume::-webkit-slider-thumb:hover,
+#progress::-webkit-slider-thumb:hover {
+    background: #641a85;
+}
+
+/*CAMBIAR COLOR BOLITA  BARRAS FIREFOX*/
+#volume::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: #7b1fa2;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.gifSong1 {
+    width: 50px;
+    height: 50px;
+    background-image: url("../../multimedia/images/portadaSong1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #3b00ff;
+    border: 2px solid white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.gifSong2 {
+    width: 50px;
+    height: 50px;
+    background-image: url("../../multimedia/images/portadaSong2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #3b00ff;
+    border: 2px solid white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+ 
+
+
+/* COMENTARIOS */
+.container2C3 {
+    /* PARA QUE NO DESBORDE AL APLICAR EL BORDE */
+    box-sizing: border-box;
+    width: 100%;
+    height: 60%;
+    border: 5px solid #c544bf;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.messageComments {
+    font-family: 'Sereg', Arial, sans-serif;
+
+    box-sizing: border-box;
+    /* Asegura que el padding no expanda su tamaño */
+
+    padding: 5px;
+    width: 100%;
+    height: auto;
+    background-color: #e1ccfc;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.commentsContainer {
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+/* CAMBIO DEL COLOR DE LA BARRA LATERAL */
+.commentsContainer::-webkit-scrollbar {
+    width: 15px;
+}
+
+/*ESTILO DE LA PISTA */
+.commentsContainer::-webkit-scrollbar-track {
+    background-color: #d8d8d8;
+    /*Color de la pista */
+}
+
+/*thumb (parte móvil) */
+.commentsContainer::-webkit-scrollbar-thumb {
+    background-color: #3b00ff;
+    border: 2px solid #f1f1f1;
+}
+
+/*thumb cuando se pasa el mouse */
+.commentsContainer::-webkit-scrollbar-thumb:hover {
+    background-color: #3b00ff;
+}
+
+.commentContainer {
+    font-family: 'Sereg', Arial, sans-serif;
+
+    box-sizing: border-box;
+    /* Asegura que el padding no expanda su tamaño */
+
+    padding: 5px;
+    width: 100%;
+    height: auto;
+    background-color: #e1ccfc;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.commentsInputContainer {
+    border-top: 5px solid #c544bf;
+
+    font-family: 'Sereg', Arial, sans-serif;
+    font-size: 25px;
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+    width: 100%;
+    height: 60%;
+    padding: 5px;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ 
+    max-height: 100%;
+}
+
+.usernameInput,
+.commentInput {
+    font-family: 'Sereg', Arial, sans-serif;
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.usernameInput input,
+.commentInput input {
+    font-size: 15px;
+    font-family: 'Sereg', Arial, sans-serif;
+    border: 5px solid #c544bf;
+    padding: 10px;
+    width: 90%;
+}
+
+.sendComment {
+    width: 90%;
+    font-family: 'Sereg', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 5px;
+    color: white;
+    background-image: url("../../multimedia/images/gifSong2.gif");
+    background-size: cover;
+    border: 5px solid #c544bf;
+    transition: all 0.3s ease-in-out;
+}
+
+.sendComment:hover {
+    background-image: url("../../multimedia/images/gifSong1.gif");
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #c544bf;
+}
+
+.sendComment:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 5px #ff00ff;
+    border-color: #3b00ff;
+    filter: brightness(0.8);
+}
+
+/* FOOTER */
+.footerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 2vh;
+    border: 5px solid #c544bf;
+    font-family: 'Sereg', Arial, sans-serif;
+    font-size: 15px;
+    border-radius: 5px;
+    color: #2a10b9;
+    background-color: #e1ccfc;
+}
+
+
+/* RESPONSIVE */
+@media screen and (max-width: 1500px) {
+    .globalContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 90%;
+        height: 100vh;
+        justify-content: center;
+    }
+
+    .tenor-gif-embed {
+        display: none;
+    }
+}
+
+
+
+@media screen and (max-width: 780px) {
+    .container3C1{
+        display: none;
+    }
+    .updatesContainer{
+        max-height: 200px;
+    }
+    .commentsContainer{
+        max-height: 200px;
+    }
+    .globalContainer {
+
+        display: flex;
+        flex-direction: column;
+        margin-right: 5px;
+        gap: 5px;
+        width: 90%;
+        height: auto;
+        justify-content: start;
+ 
+    }
+
+    .webContainer {
+
+        width: 100%;
+        height: auto;
+        border: 5px solid #c544bf;
+        border-radius: 5px;
+        background-color: white;
+    }
+
+    .columnsContainer {
+        box-sizing: border-box;
+
+        gap: 5px;
+        display: flex;
+        flex-direction: column;
+        padding: 5px;
+        justify-content: center;
+        width: auto;
+        height: auto;
+        overflow-y: auto;
+    }
+
+    .column1,
+    .column2,
+    .column3 {
+
+        display: flex;
+        justify-content: start;
+        width: 100%;
+        min-height: 500px;
+        /* Asegura que tenga altura visible */
+        overflow: visible;
+        /* Evita que desaparezca contenido */
+    }
+    .arrow2 img{
+        transform: rotate(180deg);
+    
+        width: 50px;
+        height: 50px;
+    }
+    .arrow1 img{
+        width: 50px;
+        height: 50px;
+    }
+}
