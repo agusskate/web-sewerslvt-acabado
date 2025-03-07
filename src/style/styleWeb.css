@@ -533,7 +533,9 @@ nav a {
     border-bottom: 2px solid #1e0e7e;
     font-family: 'Sereg', Arial, sans-serif;
 }
-
+.nameIntro h1{
+    font-size: 12px;
+}
 .nameIntroYou {
     text-align: end;
     padding: 3px;
