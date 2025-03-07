@@ -425,6 +425,7 @@
                             <audio id="audio"></audio>
                             <div class="controls">
                                 <span id="current-time">0:00</span>
+                                <label for="progress" style="display: none;">progress</label>
                                 <input type="range" id="progress" value="0" min="0" max="100">
                                 <span id="duration">3:46</span>
                             </div>
@@ -435,6 +436,7 @@
                             </div>
                             <div class="volume">
                                 <i class="fa-solid fa-volume-high"></i>
+                                <label for="volume" style="display: none;">volume</label>
                                 <input type="range" id="volume" value="100" min="0" max="100">
                             </div>
                         </div>
@@ -470,8 +472,15 @@
                             
                         </div>
                         <div class="commentsInputContainer">
-                            <div class="usernameInput"><input type="text" placeholder="Nickname"></div>
-                            <div class="commentInput"><input type="text" placeholder="Comment"></div>
+                            <div class="usernameInput">
+                                <label for="nick" style="display: none;">Nick</label>
+                                <input type="text" id="nick" placeholder="Nickname">
+                            </div>
+
+                            <div class="commentInput">
+                                <label for="comment" style="display: none;">Comment</label>
+                                <input type="text" id="comment" placeholder="Comment">
+                            </div>
                             <button class="sendComment">Send</button>
                         </div>
                     </div>
