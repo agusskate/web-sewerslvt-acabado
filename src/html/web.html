@@ -426,7 +426,7 @@
                             <div class="controls">
                                 <span id="current-time">0:00</span>
                                 <label for="progress" style="display: none;">progress</label>
-                                <input type="range" id="progress" value="0" min="0" max="100">
+                                <input type="range" aria-label="progreso" id="progress" value="0" min="0" max="100">
                                 <span id="duration">3:46</span>
                             </div>
                             <div class="buttons">
@@ -437,7 +437,7 @@
                             <div class="volume">
                                 <i class="fa-solid fa-volume-high"></i>
                                 <label for="volume" style="display: none;">volume</label>
-                                <input type="range" id="volume" value="100" min="0" max="100">
+                                <input type="range" aria-label="volumen" id="volume" value="100" min="0" max="100">
                             </div>
                         </div>
 
@@ -474,12 +474,12 @@
                         <div class="commentsInputContainer">
                             <div class="usernameInput">
                                 <label for="nick" style="display: none;">Nick</label>
-                                <input type="text" id="nick" placeholder="Nickname">
+                                <input type="text" aria-label="nick" id="nick" placeholder="Nickname">
                             </div>
 
                             <div class="commentInput">
                                 <label for="comment" style="display: none;">Comment</label>
-                                <input type="text" id="comment" placeholder="Comment">
+                                <input type="text" aria-label="nick" id="comment" placeholder="Comment">
                             </div>
                             <button class="sendComment">Send</button>
                         </div>
