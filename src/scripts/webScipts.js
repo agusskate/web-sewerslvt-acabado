@@ -2,7 +2,6 @@ $(document).ready(function () {
     let canciones = [
         "../../multimedia/music/cancion1.mp3",
         "../../multimedia/music/cancion2.mp3",
-        "music/cancion3.mp3"
     ];
 
     let audio = $("#audio")[0];
@@ -32,6 +31,9 @@ $(document).ready(function () {
         }
 
         $(".song-info h3").text(songName);
+        //Reiniciar el tiempo y el progreso de la canción
+        audio.currentTime = 0.1;
+        progressBar.val(0.1);
 
         //IMPORTANTE PARA QUE LA CANCIÓN HAYA CARGADO CORRECTAMENTE Y SE PUEDA IMPRIMIR LA DURACIÓN
         audio.load();
