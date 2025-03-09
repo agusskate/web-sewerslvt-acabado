@@ -113,7 +113,7 @@ $(document).ready(function () {
 
 
     $(document).ready(function () {
- 
+
         $("#shopWindow").hide();
         $("#albumsWindow").hide();
         $("#socialWindow").hide();
@@ -154,10 +154,10 @@ $(document).ready(function () {
 
     //OCULTAR ALBUMS
     $(document).ready(function () {
- 
+
         $("#2022").hide();
         $("#2025").hide();
- 
+
 
         // Al hacer clic en "2022"
         $(".2022").click(function () {
@@ -182,10 +182,16 @@ $(document).ready(function () {
 
     });
 
- 
-    
-    
-    
-    
+
+
+    //CAMBIO BACKGROUND 
+
+    $("#change-bg").click(function () {
+        $(".tenor-gif-embed p").fadeOut()
+        $("#background-video").remove(); 
+        $("body").css("background-color", "black");
+    });
+
+
 
 });
